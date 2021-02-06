@@ -1,0 +1,44 @@
+body {
+    font-family: 'Alata';
+}
+#view{
+  margin-top: -30vw;
+  white-space : pre; 
+  background-color: #ffb266;
+}
+code{
+  color: black;
+  background-color: darkgrey;
+}
+img{
+  opacity:0.2;
+  margin-top:10vw;
+  margin-left: 10vw;
+  height: auto;
+  width: 100%;
+  max-width: 50vw;
+}
+.command-thumbnail {
+  margin-top: 10px;   
+  white-space : pre;  
+  overflow : hidden;  
+  max-height: 100px;  
+  height :30px;     
+  border-radius:30px;/* rounded corners */
+  text-align: center;
+  background: linear-gradient(to top right, #ff3300 0%, #ff9933 66%);
+
+}
+@media only screen and (min-width: 320px) and (max-width: 768px) {
+  
+  #view{
+  margin-top: -30vw;
+  font-size: 2vw;
+  width: 100%;
+}
+.command-thumbnail {
+  max-height: 50px;
+  font-size: 2vw;
+
+}
+

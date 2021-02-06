@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8" />
+	<title>	Git Cheat Sheet</title>
+	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+	<link rel="stylesheet" type="text/css" href="styles.css"/>
+	<link href='https://fonts.googleapis.com/css?family=Alata' rel='stylesheet'>
+	<link href='https://fonts.googleapis.com/css?family=B612 Mono' rel='stylesheet'>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+</head>
+
+<body>
+    
+    <div class="row">
+           
+			<div class="col-md-3">
+				<ul class="list-group scrollable" id="commandlist">
+
+					<!--Intro -->
+		            <li id="command0" class="list-group-item command-thumbnail">What is Git?
+		            Git is a free, open source DVCS( Distributed Version Control System)
+		            designed to handle everything from small to very large projects with speed and 
+		            efficiency.
+		            Git tracks the changes you make to files, so you have a record of what has been done, 
+		            and you can revert to specific versions should you ever need to. 
+		            Git also makes collaboration easier, allowing changes by multiple people to all be 
+		            merged into one source. 
+		            </li>
+                     
+                    <!--Installation-->
+            		<li id="command1" class="list-group-item command-thumbnail ">Installation
+                    <a href="https://git-scm.com/download/mac/">MAC USERS</a>
+                    <a href="https://gitforwindows.org/">WINDOWS USERS</a>
+                    <a href="https://git-scm.com/download/linux">LINUX USERS</a>
+            		</li>
+                    
+                    <!--Configure your Git-->
+            		<li id="command2" class="list-group-item command-thumbnail ">Configure your Git 
+                    Git uses username to associate commits with an identity by using the <b>git config </b>command.
+                    <code>git config --global user.name "my name"</code>
+                    <br>
+                    Any future commits pushed to github will be associated with this email address.
+                    <code>git config --global user.email "me@example.com" </code>
+            		</li>
+
+                    <!--Intialise-->
+                    <li id="command3" class="list-group-item command-thumbnail ">Initialise a git repository
+            		The <b>git init </b>command creates an empty Git repo in your specified directory
+            		<code>cd path/to/your/directory</code>
+            		<code> git init</code>
+                    This will create an empty git repo in the specified directory
+            		</li>
+                    
+                    <!--Opeartions-->
+                    <li id="command4" class="list-group-item command-thumbnail ">Git operations
+                    To create a local copy of a remote repo we use the <b>git clone </b>
+            		<code>cd path/to/your/directory</code> (Where you want the remote repo to be stored locally)
+            		<code>git clone path/to/repo </code>
+                    This will create a directory having the same name as the "cloned" repo, initialises a 
+                    .git directory in it, pulls down all the data and creates a working copy of that repo locally
+            		</li>
+            		
+            		<!--Workflow-->
+            		<li id="command5" class="list-group-item command-thumbnail ">Git Workflow
+                    The local repo consists of three "trees" maintained by git
+                       1. Working Directory that holds the actual files.
+                       2. Index that acts as staging area
+                       3. HEAD that points to the last commit made.
+            		</li>
+
+            		<!--Add Command-->
+            		<li id="command6" class="list-group-item command-thumbnail ">Git Add
+                    The <b>git add</b> command adds a file to the staging area for the next commit.
+                    <code>git add example_file</code>
+                       OR
+                    <code>git add . </code>
+            		</li>
+                    
+                    <!--Git Status-->
+            		<li id="command7" class="list-group-item command-thumbnail ">Git Status
+                    The <b>git status</b> command shows the different states of files in working directory
+                    and staging area,like files that are modified but unstaged and files staged but not 
+                    commited.
+                    It is always a good idea to check on what branch one is before commiting changes
+                    <code>git status</code>
+            		</li>
+                    
+                    <!--Git Commit-->
+            		<li id="command8" class="list-group-item command-thumbnail ">Git Commit
+                    The <b>git commit</b> command captures a snapshot of the project's currently staged changes.
+                    It stores the current contents of the INDEX in a new commit along with commit message.
+
+                    <code>git commit -m "descriptive message" </code>
+
+                    A commit message is a log message from the user describing the changes.
+
+            		</li>
+
+                    <!--Push command-->
+            		<li id="command9" class="list-group-item command-thumbnail "> Git Push
+                    The file after commiting is commited in the HEAD of your local working copy and is not yet 
+                    in your remote repository.
+                    
+                    To send those changes from local -> remote repository, 
+                    we use <b>git push</b> command.
+                    <code>git push origin master</code>
+                    Enter the Github username and password to prompt the associated remote repo 
+                    to push changes.
+            		</li>
+                    
+                    <!--Branching in git-->
+            		<li id="command10" class="list-group-item command-thumbnail "> Branching in Git
+                    Branches are useful to develop features isolated from each other.
+                    The <b>master</b> branch is the default branch when a repo is created.
+                    Creating a new branch means creating a new pointer to move around.
+                    <code>git branch testing</code>
+                    This created a new branch but has not switched to it.
+                    <code>git checkout testing</code>
+                    This command switches to an existing branch "testing".
+
+                    OR
+                    You can directly perform the above operation as:
+                    <code>git checkout -b testing</code>
+
+                    A branch is not available to others unless it is pushed to remote repo.
+                    <code>git push origin testing</code>
+
+                    * Move back to master branch by:
+                    <code>git checkout master</code>
+
+                    * Delete an existing branch by:
+                    <code>git branch -d testing</code>
+            		</li>
+                    
+                    <!--Git log-->
+            		<li id="command11" class="list-group-item command-thumbnail "> Git Log
+                    The <b>git log</b> command lists the commits made in a repo in reverse chronological
+                    order i.e most recent commits are shown first.
+
+                    <code>git log</code>
+                    
+                    One of the more helpful options is -p or --patch, which shows the difference 
+                    introduced in each commit. One can also limit the number of log entries displayed, 
+                    such as using -2 to show only the last two entries.
+
+                    <code>git log -p -2</code>
+            		</li>
+
+                    <!--Fetch and Pull-->
+            		<li id="command12" class="list-group-item command-thumbnail "> Git Fetch and Git Pull
+            	    When downloading content from a remote repo, git pull and git fetch commands
+            	    are available to accomplish the task. 
+
+                    The <b>git fetch</b> command downloads commits, files, and refs from a remote repository 
+                    into your local repo but not update your local repo's working state, 
+                    leaving your current work intact.
+
+                    <code>git fetch remote_repo</code>
+                    Fetches all of the branches from the repository. 
+                    This also downloads all of the required commits and files from the other repository.
+                    
+                   
+                    <code>git fetch remote_repo branch_name</code>
+                    Fetches only specific branch from remote repo.
+
+                    To synchronize the local repository:
+                    Suppose, your team member has added some new features to your remote repository. 
+                    So, to add these updates to your local repository, use the git fetch command. 
+                    <code>git fetch origin</code>  
+                    
+                    <!--Pull-->
+                    The git pull command is used to fetch and download content from a remote repository 
+                    and immediately update the local repository to match that content. 
+
+                    Merging remote upstream changes into your local repository is a common task 
+                    in Git-based collaboration work flows. 
+
+                    The git pull command is actually a combination of two other commands, 
+                    git fetch followed by git merge. 
+
+                    In the first stage of operation git pull will execute a git fetch scoped to the 
+                    local branch that HEAD is pointed at. 
+                    Once the content is downloaded, git pull will enter a merge workflow.
+                    A new merge commit will be-created and HEAD updated to point at the new commit.
+                    <code>git pull repo_name</code>
+
+
+            		</li>
+                    
+                    <!--make a PR in GitHub-->
+                    <li id="command13" class="list-group-item command-thumbnail ">Making a Pull Request(PR) in GitHub
+                    
+                    A pull request is a commit or series of commits that you send to the owner of the repository
+                    so that they incorporate it into their tree.
+                    
+                    Most open source projects have "Contributing Guideliness" (eg: CONTRIBUTING.md file) 
+                    in their repos. Make sure to go through the guideliness before making a PR.
+
+                    <a href="https://www.freecodecamp.org/news/how-to-make-your-first-pull-request-on-github-3/">Making a PR in Github</a>
+
+                    </li>                    
+
+                    <!--Resources-->
+            		<li id="command14" class="list-group-item command-thumbnail ">Additional Resources
+
+                    <a href="https://docs.github.com/en/github/importing-your-projects-to-github/adding-an-existing-project-to-github-using-the-command-line">*Add an existing project to Github</a>
+
+                    </li>
+
+                </ul>
+            </div>
+
+            <div class="col-md-9">
+            	<img src="C:\Users\adhis\Desktop\web_dev\Git Cheat Sheet\assets\Git-Logo.png" alt="Git">
+				<div class="well" id="view"></div>
+			</div>
+
+
+        <script type="text/javascript" src="thumbnail.js"></script>	 
+</body>
+</html>
